@@ -21,17 +21,19 @@ main ()
   for (int i = 0; i < n; i++){
       if (gol[i] == "H"){
 	  br_hr++;
-	  razlika = br_hr-br_s;
+	  if(br_hr>br_s) razlika = br_hr-br_s;
+	  else razlika = br_s-br_hr;
 	  if(razlika > max){
 	      max=razlika;
 	  }
 	}else{
 	  br_s++;
-	  razlika = br_hr-br_s;
-	   if(razlika > max){
+	  if(br_hr>br_s) razlika = br_hr-br_s;
+	  else razlika = br_s-br_hr;
+	  if(razlika > max){
 	      max=razlika;
-	  }
-	}
+	 }
+   }
 }
 
   cout << br_hr << endl;
