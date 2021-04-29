@@ -23,13 +23,13 @@ main ()
 	  br_hr++;
 	  razlika = br_hr-br_s;
 	  if(razlika > max){
-	      max=max+(razlika)+1;
+	      max=razlika;
 	  }
 	}else{
 	  br_s++;
 	  razlika = br_hr-br_s;
 	   if(razlika > max){
-	      max=max+(razlika)+1;
+	      max=razlika;
 	  }
 	}
 }
