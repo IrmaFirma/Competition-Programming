@@ -1,27 +1,22 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
-int memo[100010],n,h[100010];
-bool izracunat[100010]; ///  niz koji provjerava je li vec izracunat dp
-
+int memo[100010],n,h[100010]; //memo, broj zaba i niz visina
+bool izracunat[100010]; //niz izracunatih vrijednosti
+ 
 int najmanjiUmor(int n){
-    if( izracunat[n] == true ) /// ako je vec izracunato
-        return memo[n];
+    if( izracunat[n] == true )
+        return memo[n]; //ako je trenutni broj vec izracunat return rjesenje
 
-    izracunat[n]=true; /// stavljamo da je izracunato
+    izracunat[n]=true; 
 	if(n==2){
-	 memo[n]=abs(h[2]-h[1]);
+	 memo[n]=abs(h[2]-h[1]);  //bazni slucaj ako je n = 2 jedino rjesenje je ovo
 	 return memo[n];
     }
-	if(n<=1) return 0; /// za 1 je rjesenje 0, jer je zaba na pocetku vec na 1 i ne treba se umarati da dodje
+	if(n<=1) return 0; //ako je manje ili jednako 1 rjesenje je 0
 
-
-	memo[n]=min( najmanjiUmor(n-1)+abs(h[n]-h[n-1]) , najmanjiUmor(n-2)+abs(h[n]-h[n-2]));
-
-	/// zaba je mogla na lokvanj n doskociti sa n-1 ili sa n-2, i to su dva prethodna stanja
-
-return memo[n];
+	memo[n]=min( najmanjiUmor(n-1)+abs(h[n]-h[n-1]) , najmanjiUmor(n-2)+abs(h[n]-h[n-2])); //formula za izracunavanje
+	return memo[n];
 }
 
 int main(){
