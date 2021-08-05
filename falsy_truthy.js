@@ -14,3 +14,12 @@ if (favoritePhrase) {
 } else {
   console.log('This string is definitely empty.');
 }
+
+
+//next 1
+let tool = 'marker';
+
+// Use short circuit evaluation to assign  writingUtensil variable below:
+let writingUtensil = tool || 'pen';
+
+console.log(`The ${writingUtensil} is mightier than the sword.`);
